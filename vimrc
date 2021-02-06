@@ -42,7 +42,7 @@ syntax on
 filetype plugin indent on
 
 set number
-set colorcolumn=90
+set colorcolumn=80
 set list
 set listchars=tab:▸\ ,trail:▫
 set backspace=indent,eol,start
