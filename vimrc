@@ -44,7 +44,7 @@ filetype plugin indent on
 set number
 set colorcolumn=80
 set list
-set listchars=tab:▸\ ,trail:▫
+set listchars=tab:→\ ,trail:·
 set backspace=indent,eol,start
 set autochdir
 set shellslash
