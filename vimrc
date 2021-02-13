@@ -17,12 +17,14 @@ try
     Plug 'itchyny/lightline.vim'
     Plug 'vim-python/python-syntax'
     Plug 'easymotion/vim-easymotion'
+    Plug 'airblade/vim-gitgutter'
     call plug#end()
 
     if first_install==1
         PlugInstall
     endif
 
+    set updatetime=100
     let g:lightline={'colorscheme':'onedark'}
     let g:python_highlight_all=1
     let g:EasyMotion_smartcase=1
