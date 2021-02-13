@@ -53,6 +53,7 @@ set shellslash
 set nostartofline
 set laststatus=2
 set shortmess=I
+set signcolumn=yes
 
 set tabstop=4
 set shiftwidth=4
