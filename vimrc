@@ -1,74 +1,36 @@
-set encoding=utf-8
-
-let mapleader=' '
-
-try
-    let plugvim_url='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    let plugvim_path=$HOME . '/vimfiles/autoload/plug.vim'
-    let first_install=0
-
-    if empty(glob(plugvim_path))
-        silent exec '!curl -fLo ' . plugvim_path . ' --create-dirs ' . plugvim_url
-        let first_install=1
-    endif
-
-    call plug#begin()
-    Plug 'joshdick/onedark.vim'
-    Plug 'itchyny/lightline.vim'
-    Plug 'vim-python/python-syntax'
-    Plug 'easymotion/vim-easymotion'
-    Plug 'airblade/vim-gitgutter'
-    call plug#end()
-
-    if first_install==1
-        PlugInstall
-    endif
-
-    set updatetime=100
-    let g:lightline={'colorscheme':'onedark'}
-    let g:python_highlight_all=1
-    let g:EasyMotion_smartcase=1
-    map <M-;> <Plug>(easymotion-overwin-f2)
-    colorscheme onedark
-catch
-    colorscheme ron
-    "echo 'EXCEPTION: ' . v:exception
-endtry
-
-if has('gui_running')
-    set guioptions=
-    set guifont=JetBrains\ Mono:h12,Lucida\ Console:h12
-endif
-
 syntax on
 filetype plugin indent on
+colorscheme ron
 
 set number
-set colorcolumn=80
+set colorcolumn=100
+set guioptions=
+set guifont=Consolas:h11
+set shortmess=I
+
 set list
 set listchars=tab:→\ ,trail:·
-set backspace=indent,eol,start
-set autochdir
-set shellslash
-set nostartofline
-set laststatus=2
-set shortmess=I
-set signcolumn=yes
-
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set smarttab
-
-set wildmenu
-set wildmode=longest,list
 
 set ignorecase
 set smartcase
 set hlsearch
 set incsearch
 
-nnoremap <leader>ev :e $MYVIMRC<CR>
+set wildmenu
+set wildmode=longest,list
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+set autochdir
+set shellslash
+set nostartofline
+set backspace=indent,eol,start
+
+let mapleader=' '
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>sh :set hlsearch!<CR>
-nnoremap <leader>xp :w<CR>:!python %<CR><CR>
 
