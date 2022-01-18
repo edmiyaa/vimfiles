@@ -33,4 +33,5 @@ let mapleader=' '
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>sh :set hlsearch!<CR>
+nnoremap <leader>of :exec 'e ' . trim(@*, "\"'")<CR>
 
