@@ -20,6 +20,7 @@ set expandtab
 set list
 set listchars=tab:→\ ,trail:·
 
+set nowrap
 set autochdir
 set shellslash
 set nostartofline
