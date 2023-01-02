@@ -1,3 +1,4 @@
+" Redefine mapleader before installing any plugins
 let mapleader=' '
 
 " Install Plugins
@@ -5,16 +6,21 @@ let plugvim_url='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug
 let plugvim_path = fnamemodify($MYVIMRC, ':p:h') . '/autoload/plug.vim'
 let init=0
 
+" If vim-plug is not installed, then assume no plugins exist
 if !filereadable(plugvim_path)
+    " Download vim-plug and place it inside $MYVIMRC/autoload/
     silent exec '!curl -fLo ' . plugvim_path . ' --create-dirs ' . plugvim_url
+    " Set the flag to download plugins
     let init=1
 endif
 
+" Define plugins to be used
 call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 call plug#end()
 
+" If vim-plug was just installed, proceed to download plugins
 if init==1
     PlugInstall
 endif
@@ -27,7 +33,6 @@ set numberwidth=1
 
 " Fugitive
 nnoremap <leader>g :vertical botright G<CR>
-
 
 " General Config
 syntax on
@@ -61,7 +66,9 @@ set shellslash
 set nostartofline
 set noswapfile
 set backspace=indent,eol,start
-au GUIEnter * simalt ~x "Start Vim in fullscreen
+
+"Start Vim in fullscreen
+au GUIEnter * simalt ~x
 
 nnoremap <leader>ev :e! $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
