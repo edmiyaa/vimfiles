@@ -20,6 +20,9 @@ set expandtab
 set list
 set listchars=tab:→\ ,trail:·
 
+set wildmenu
+set wildmode=longest,list
+
 set nowrap
 set autochdir
 set shellslash
