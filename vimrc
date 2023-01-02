@@ -65,6 +65,7 @@ set autochdir
 set shellslash
 set nostartofline
 set noswapfile
+set belloff=all
 set backspace=indent,eol,start
 
 "Start Vim in fullscreen
