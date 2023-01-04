@@ -19,6 +19,7 @@ call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'preservim/nerdcommenter'
 call plug#end()
 
 " If vim-plug was just installed, proceed to download plugins
