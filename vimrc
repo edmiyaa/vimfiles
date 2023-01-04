@@ -36,6 +36,9 @@ set numberwidth=1
 " Fugitive
 nnoremap <leader>g :vertical botright G<CR>
 
+" NerdCommenter
+let g:NERDSpaceDelims = 1
+
 " General Config
 syntax on
 filetype plugin indent on
