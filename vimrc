@@ -21,6 +21,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
 " If vim-plug was just installed, proceed to download plugins
