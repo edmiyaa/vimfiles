@@ -22,6 +22,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 " If vim-plug was just installed, proceed to download plugins
@@ -37,6 +38,10 @@ set numberwidth=1
 
 " Fugitive
 nnoremap <leader>g :vertical botright G<CR>
+
+" EasyMotion
+nnoremap s  <Plug>(easymotion-overwin-f2)
+let g:EasyMotion_smartcase = 1
 
 " NerdCommenter
 let g:NERDSpaceDelims = 1
