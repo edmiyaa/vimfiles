@@ -47,6 +47,9 @@ let g:EasyMotion_smartcase = 1
 " NerdCommenter
 let g:NERDSpaceDelims = 1
 
+" Coc.nvim
+inoremap <expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
 " General Config
 syntax on
 filetype plugin indent on
