@@ -48,7 +48,7 @@ let g:EasyMotion_smartcase = 1
 let g:NERDSpaceDelims = 1
 
 " Coc.nvim
-inoremap <expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+inoremap <expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "<tab>"
 
 " General Config
 syntax on
