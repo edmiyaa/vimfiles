@@ -24,6 +24,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'easymotion/vim-easymotion'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
 call plug#end()
 
 " If vim-plug was just installed, proceed to download plugins
@@ -49,6 +51,10 @@ let g:NERDSpaceDelims = 1
 
 " Coc.nvim
 inoremap <expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "<tab>"
+
+" VimMarkdown
+let g:vim_markdown_folding_disabled = 1
+set conceallevel=2
 
 " General Config
 syntax on
