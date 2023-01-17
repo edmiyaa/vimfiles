@@ -100,3 +100,5 @@ nnoremap <leader>ev :e! $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>of :exec 'e ' . trim(@*, "\"'")<CR>
 
+autocmd BufRead,BufNewFile *.usda set filetype=usda
+
