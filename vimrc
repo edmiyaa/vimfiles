@@ -35,13 +35,21 @@ if init==1
 endif
 
 " Fzf.vim
-let default_fzf_options = '--exact --reverse'
-let g:fzf_buffers_options = default_fzf_options
-let g:fzf_files_options = default_fzf_options
-let g:fzf_history_options = default_fzf_options
-nnoremap <leader>ff :Files<CR>
-nnoremap <leader>fb :Buffers<CR>
-nnoremap <leader>fh :History<CR>
+let fzf_options = '--exact --reverse'
+
+command! -bang -nargs=? -complete=dir FzfCustomFiles 
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': fzf_options}), <bang>0)
+command! -bar -bang -nargs=? -complete=buffer FzfCustomBuffers 
+    \ call fzf#vim#buffers(<q-args>, fzf#vim#with_preview({'placeholder': '{1}', 'options': fzf_options}), <bang>0)
+command! -bang FzfCustomHistory
+    \ call fzf#vim#history(fzf#vim#with_preview({'options': fzf_options}), <bang>0)
+command! -bang -nargs=* FzfCustomRg
+    \ call fzf#vim#grep('rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1, fzf#vim#with_preview({'options': fzf_options}), <bang>0)
+
+nnoremap <leader>ff :FzfCustomFiles!<CR>
+nnoremap <leader>fb :FzfCustomBuffers!<CR>
+nnoremap <leader>fh :FzfCustomHistory!<CR>
+nnoremap <leader>fr :FzfCustomRg!<CR>
 
 " GitGutter
 " Reduce delay between GitGutter updates
