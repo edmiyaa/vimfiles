@@ -19,6 +19,7 @@ call plug#begin()
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -32,6 +33,15 @@ call plug#end()
 if init==1
     PlugInstall
 endif
+
+" Fzf.vim
+let default_fzf_options = '--exact --reverse'
+let g:fzf_buffers_options = default_fzf_options
+let g:fzf_files_options = default_fzf_options
+let g:fzf_history_options = default_fzf_options
+nnoremap <leader>ff :Files<CR>
+nnoremap <leader>fb :Buffers<CR>
+nnoremap <leader>fh :History<CR>
 
 " GitGutter
 " Reduce delay between GitGutter updates
