@@ -54,7 +54,7 @@ inoremap <expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "<tab>"
 
 " VimMarkdown
 let g:vim_markdown_folding_disabled = 1
-set conceallevel=2
+autocmd filetype markdown set conceallevel=2
 
 " General Config
 syntax on
