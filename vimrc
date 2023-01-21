@@ -67,7 +67,6 @@ set shortmess=I
 set colorcolumn=100
 
 set ignorecase
-set smartcase
 set hlsearch
 set incsearch
 
