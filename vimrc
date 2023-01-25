@@ -1,119 +1,121 @@
 " Redefine mapleader before installing any plugins
-let mapleader=' '
+let mapleader = "\<Space>"
 
-" Install Plugins
-let plugvim_url='https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-let plugvim_path = fnamemodify($MYVIMRC, ':p:h') . '/autoload/plug.vim'
-let init=0
+"####################
+"# INSTALL VIM-PLUG #
+"####################
 
-" If vim-plug is not installed, then assume no plugins exist
-if !filereadable(plugvim_path)
+let vimplug_url = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+let vimplug_path = fnamemodify($MYVIMRC, ':p:h') . '/autoload/plug.vim'
+let init = 0
+
+" If vim-plug is not installed, assume this is a new Vim installation
+if !filereadable(vimplug_path)
     " Download vim-plug and place it inside $MYVIMRC/autoload/
-    silent exec '!curl -fLo ' . plugvim_path . ' --create-dirs ' . plugvim_url
-    " Set the flag to download plugins
-    let init=1
+    silent exec '!curl -fLo ' . vimplug_path . ' --create-dirs ' . vimplug_url
+    " Set the init flag to download and install plugins
+    let init = 1
 endif
+
+"###################
+"# INSTALL PLUGINS #
+"###################
 
 " Define plugins to be used
 call plug#begin()
+Plug 'liuchengxu/vim-which-key'
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'preservim/nerdcommenter'
 Plug 'vim-airline/vim-airline'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'easymotion/vim-easymotion'
+Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/vim-markdown'
 call plug#end()
 
-" If vim-plug was just installed, proceed to download plugins
-if init==1
+" Install plugins if the init flag was set
+if init == 1
     silent PlugInstall
 endif
 
-" Fzf.vim
-let fzf_options = '--exact --reverse'
+"#################
+"# vim-which-key #
+"#################
 
-command! -bang -nargs=? -complete=dir FzfCustomFiles 
-    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': fzf_options}), <bang>0)
-command! -bar -bang -nargs=? -complete=buffer FzfCustomBuffers 
-    \ call fzf#vim#buffers(<q-args>, fzf#vim#with_preview({'placeholder': '{1}', 'options': fzf_options}), <bang>0)
-command! -bang FzfCustomHistory
-    \ call fzf#vim#history(fzf#vim#with_preview({'options': fzf_options}), <bang>0)
-command! -bang -nargs=* FzfCustomRg
-    \ call fzf#vim#grep('rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1, fzf#vim#with_preview({'options': fzf_options}), <bang>0)
+nnoremap <silent><leader> :<c-u>WhichKey '<Leader>'<CR>
+call which_key#register('<Space>', 'g:which_key_map')
 
-nnoremap <leader>ff :FzfCustomFiles!<CR>
-nnoremap <leader>fb :FzfCustomBuffers!<CR>
-nnoremap <leader>fh :FzfCustomHistory!<CR>
-nnoremap <leader>fr :FzfCustomRg!<CR>
+let g:which_key_map = {}
 
-" GitGutter
-" Reduce delay between GitGutter updates
-set updatetime=100
-" Remove extra empty column when gutters are shown
-set numberwidth=1
+let g:which_key_map.e = {
+    \ 'name': 'Edit Files',
+    \ 'v': 'Edit $MYVIMRC',
+    \ 'c': 'Edit file in clipboard',
+\ }
 
-" Fugitive
-nnoremap <leader>g :vertical botright G<CR>
+let g:which_key_map.c = {
+    \ 'name': 'Config',
+    \ 'v': 'Source $MYVIMRC',
+\ }
 
-" EasyMotion
-nnoremap s  <Plug>(easymotion-overwin-f2)
-let g:EasyMotion_smartcase = 1
+let g:which_key_map.g = {
+    \ 'name': 'Git',
+    \ 'g': 'VimFugitive',
+\ }
 
-" NerdCommenter
-let g:NERDSpaceDelims = 1
+"############
+"# coc.nvim #
+"############
 
-" Coc.nvim
 inoremap <expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "<tab>"
 
-" VimMarkdown
-let g:vim_markdown_folding_disabled = 1
-autocmd filetype markdown set conceallevel=2
+"#############
+"# SHORTCUTS #
+"#############
 
-" General Config
+nnoremap <leader>ev :e! $MYVIMRC<CR>
+nnoremap <leader>cv :source $MYVIMRC<CR>
+nnoremap <leader>ec :exec 'e ' . trim(@*, "\"'")<CR>
+
+nnoremap <leader>gg :vertical botright G<CR>
+
+"##################
+"# GENERAL CONFIG #
+"##################
+
 syntax on
 filetype plugin indent on
 colorscheme slate
-set number
+
+"Start Vim in fullscreen mode
+autocmd GUIEnter * simalt ~x
+
 set guioptions=
 set guifont=Consolas:h11
 set shortmess=I
+set number
 set colorcolumn=100
 
-set ignorecase
-set hlsearch
-set incsearch
+set wildmenu
+set wildmode=longest,list
+
+set list
+set listchars=tab:→\ ,trail:·
 
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 
-set list
-set listchars=tab:→\ ,trail:·
+set ignorecase
+set incsearch
 
-set wildmenu
-set wildmode=longest,list
-
-set nowrap
-set autochdir
-set shellslash
-set nostartofline
-set noswapfile
-set signcolumn=yes
 set belloff=all
-set mouse=
+set autochdir
 set backspace=indent,eol,start
-
-"Start Vim in fullscreen
-au GUIEnter * simalt ~x
-
-nnoremap <leader>ev :e! $MYVIMRC<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
-nnoremap <leader>of :exec 'e ' . trim(@*, "\"'")<CR>
-
-autocmd BufRead,BufNewFile *.usda set filetype=usda
+set mouse=
+set noswapfile
+set nostartofline
+set nowrap
+set signcolumn=yes
+set timeoutlen=500
+set updatetime=100
+set numberwidth=1
 
