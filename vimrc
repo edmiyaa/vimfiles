@@ -25,7 +25,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'easymotion/vim-easymotion'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
 call plug#end()
 
