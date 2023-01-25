@@ -30,7 +30,7 @@ call plug#end()
 
 " If vim-plug was just installed, proceed to download plugins
 if init==1
-    PlugInstall
+    silent PlugInstall
 endif
 
 " Fzf.vim
