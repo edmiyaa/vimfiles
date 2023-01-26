@@ -60,6 +60,12 @@ let g:which_key_map.g = {
     \ 'g': 'VimFugitive',
 \ }
 
+"#################
+"# vim-gitgutter #
+"#################
+
+let g:gitgutter_map_keys = 0
+
 "############
 "# coc.nvim #
 "############
