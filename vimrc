@@ -28,6 +28,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 " Install plugins if the init flag was set
@@ -48,11 +49,17 @@ let g:which_key_map.e = {
     \ 'name': 'Edit Files',
     \ 'v': 'Edit $MYVIMRC',
     \ 'c': 'Edit file in clipboard',
+    \ 'h': 'Edit file from history',
 \ }
 
 let g:which_key_map.c = {
     \ 'name': 'Config',
     \ 'v': 'Source $MYVIMRC',
+\ }
+
+let g:which_key_map.b = {
+    \ 'name': 'Buffers',
+    \ 'b': 'Switch to buffer',
 \ }
 
 let g:which_key_map.g = {
@@ -81,6 +88,9 @@ nnoremap <leader>cv :source $MYVIMRC<CR>
 nnoremap <leader>ec :exec 'e ' . trim(@*, "\"'")<CR>
 
 nnoremap <leader>gg :vertical botright G<CR>
+
+nnoremap <leader>bb :CtrlPBuffer<CR>
+nnoremap <leader>eh :CtrlPMRUFiles<CR>
 
 "##################
 "# GENERAL CONFIG #
