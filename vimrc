@@ -122,6 +122,7 @@ set expandtab
 
 set ignorecase
 set incsearch
+set hlsearch
 
 set belloff=all
 set autochdir
