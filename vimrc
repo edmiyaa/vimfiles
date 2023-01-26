@@ -134,4 +134,5 @@ set signcolumn=yes
 set timeoutlen=500
 set updatetime=100
 set numberwidth=1
+set clipboard=unnamed
 
