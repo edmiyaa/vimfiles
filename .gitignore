@@ -5,3 +5,7 @@
 
 !syntax/
 !syntax/*.vim
+
+!plugin/
+!plugin/usd.vim
+
