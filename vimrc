@@ -48,7 +48,7 @@ let g:which_key_map = {}
 let g:which_key_map.e = {
     \ 'name': 'Edit Files',
     \ 'v': 'Edit $MYVIMRC',
-    \ 'c': 'Edit file in clipboard',
+    \ 'c': 'Edit file from clipboard',
     \ 'h': 'Edit file from history',
 \ }
 
