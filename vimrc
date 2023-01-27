@@ -107,6 +107,7 @@ set guioptions=
 set guifont=Consolas:h11
 set shortmess=I
 set number
+set relativenumber
 set colorcolumn=100
 
 set wildmenu
