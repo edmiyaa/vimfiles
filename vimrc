@@ -80,6 +80,12 @@ let g:gitgutter_map_keys = 0
 
 inoremap <expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "<tab>"
 
+"###########
+"# fzf.vim #
+"###########
+
+let $FZF_DEFAULT_OPTS='--reverse --exact'
+
 "#############
 "# SHORTCUTS #
 "#############
