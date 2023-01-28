@@ -28,7 +28,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 " Install plugins if the init flag was set
@@ -89,8 +90,8 @@ nnoremap <leader>ec :exec 'e ' . trim(@*, "\"'")<CR>
 
 nnoremap <leader>gg :vertical botright G<CR>
 
-nnoremap <leader>bb :CtrlPBuffer<CR>
-nnoremap <leader>eh :CtrlPMRUFiles<CR>
+nnoremap <leader>bb :Buffers<CR>
+nnoremap <leader>eh :History<CR>
 
 "##################
 "# GENERAL CONFIG #
