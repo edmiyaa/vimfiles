@@ -133,6 +133,7 @@ set ignorecase
 set incsearch
 set hlsearch
 
+set autoindent
 set belloff=all
 set autochdir
 set backspace=indent,eol,start
