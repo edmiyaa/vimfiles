@@ -56,6 +56,7 @@ let g:which_key_map.e = {
 
 let g:which_key_map.c = {
     \ 'name': 'Config',
+    \ 'c': 'Save and source current file',
     \ 'v': 'Source $MYVIMRC',
 \ }
 
@@ -93,6 +94,7 @@ let $FZF_DEFAULT_OPTS='--reverse --exact'
 
 nnoremap <leader>ev :e! $MYVIMRC<CR>
 nnoremap <leader>cv :source $MYVIMRC<CR>
+nnoremap <leader>cc :w<CR>:source %<CR>
 nnoremap <leader>ec :exec 'e ' . trim(@*, "\"'")<CR>
 
 nnoremap <leader>gg :vertical botright G<CR>
