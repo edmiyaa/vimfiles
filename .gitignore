@@ -8,4 +8,5 @@
 
 !plugin/
 !plugin/usd.vim
+!plugin/edusan-todo.vim
 
