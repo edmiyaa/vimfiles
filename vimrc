@@ -101,7 +101,6 @@ let $FZF_DEFAULT_OPTS='--reverse --exact'
 "#############
 
 nnoremap <leader>ev :e! $MYVIMRC<CR>
-nnoremap <leader>cv :source $MYVIMRC<CR>
 nnoremap <leader>cc :w<CR>:source %<CR>
 nnoremap <leader>ec :exec 'e ' . trim(@*, "\"'")<CR>
 
