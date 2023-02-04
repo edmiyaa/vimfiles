@@ -73,6 +73,11 @@ let g:which_key_map.g = {
     \ 'g': 'VimFugitive',
 \ }
 
+let g:which_key_map.r = {
+    \ 'name': 'Refactor',
+    \ 'r': 'Refactor name under cursor',
+\ }
+
 "#################
 "# vim-gitgutter #
 "#################
@@ -103,6 +108,8 @@ nnoremap <leader>ec :exec 'e ' . trim(@*, "\"'")<CR>
 nnoremap <leader>gg :vertical botright G<CR>
 nnoremap <leader>gd :GitGutterDiffOrig<CR>
 nnoremap <leader>gf :GitGutterFold<CR>
+
+nnoremap <leader>rr :call CocAction('refactor')<CR>
 
 nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>eh :History<CR>
