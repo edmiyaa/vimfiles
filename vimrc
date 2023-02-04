@@ -92,6 +92,7 @@ let g:gitgutter_map_keys = 0
 "############
 
 inoremap <expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "<tab>"
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 "###########
 "# fzf.vim #
