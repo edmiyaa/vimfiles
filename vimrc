@@ -31,6 +31,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 " Install plugins if the init flag was set
@@ -108,7 +109,7 @@ nnoremap <leader>eh :History<CR>
 
 syntax on
 filetype plugin indent on
-colorscheme slate
+colorscheme gruvbox
 
 "Start Vim in fullscreen mode
 autocmd GUIEnter * simalt ~x
