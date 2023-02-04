@@ -68,6 +68,8 @@ let g:which_key_map.b = {
 
 let g:which_key_map.g = {
     \ 'name': 'Git',
+    \ 'd': 'GitGutterDiffOrig',
+    \ 'f': 'GitGutterFold',
     \ 'g': 'VimFugitive',
 \ }
 
@@ -99,6 +101,8 @@ nnoremap <leader>cc :w<CR>:source %<CR>
 nnoremap <leader>ec :exec 'e ' . trim(@*, "\"'")<CR>
 
 nnoremap <leader>gg :vertical botright G<CR>
+nnoremap <leader>gd :GitGutterDiffOrig<CR>
+nnoremap <leader>gf :GitGutterFold<CR>
 
 nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>eh :History<CR>
