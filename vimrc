@@ -48,22 +48,25 @@ call which_key#register('<Space>', 'g:which_key_map')
 
 let g:which_key_map = {}
 
-let g:which_key_map.e = {
-    \ 'name': 'Edit Files',
-    \ 'v': 'Edit $MYVIMRC',
-    \ 'c': 'Edit file from clipboard',
-    \ 'h': 'Edit file from history',
-\ }
-
-let g:which_key_map.c = {
-    \ 'name': 'Config',
-    \ 'c': 'Save and source current file',
-    \ 'v': 'Source $MYVIMRC',
-\ }
-
 let g:which_key_map.b = {
     \ 'name': 'Buffers',
     \ 'b': 'Switch to buffer',
+\ }
+
+let g:which_key_map.c = {
+    \ 'name': 'Code',
+    \ 'd': 'Go to definition of name under cursor',
+    \ 'i': 'Show incoming calls',
+    \ 'o': 'Show outgoing calls',
+    \ 'r': 'Refactor name under cursor',
+    \ 't': 'Open outline',
+\ }
+
+let g:which_key_map.e = {
+    \ 'name': 'Edit Files',
+    \ 'c': 'Edit file from clipboard',
+    \ 'h': 'Edit file from history',
+    \ 'v': 'Edit $MYVIMRC',
 \ }
 
 let g:which_key_map.g = {
@@ -73,9 +76,9 @@ let g:which_key_map.g = {
     \ 'g': 'VimFugitive',
 \ }
 
-let g:which_key_map.r = {
-    \ 'name': 'Refactor',
-    \ 'r': 'Refactor name under cursor',
+let g:which_key_map.o = {
+    \ 'name': 'Other',
+    \ 's': 'Save and source current file',
 \ }
 
 "#################
@@ -101,14 +104,19 @@ let $FZF_DEFAULT_OPTS='--reverse --exact'
 "#############
 
 nnoremap <leader>ev :e! $MYVIMRC<CR>
-nnoremap <leader>cc :w<CR>:source %<CR>
 nnoremap <leader>ec :exec 'e ' . trim(@*, "\"'")<CR>
+
+nnoremap <leader>os :w<CR>:source %<CR>
 
 nnoremap <leader>gg :vertical botright G<CR>
 nnoremap <leader>gd :GitGutterDiffOrig<CR>
 nnoremap <leader>gf :GitGutterFold<CR>
 
-nnoremap <leader>rr :call CocAction('refactor')<CR>
+nnoremap <leader>cd :call CocAction('jumpDefinition')<CR>
+nnoremap <leader>ci :call CocAction('showIncomingCalls')<CR>
+nnoremap <leader>co :call CocAction('showOutgoingCalls')<CR>
+nnoremap <leader>cr :call CocAction('refactor')<CR>
+nnoremap <leader>ct :CocOutline<CR>
 
 nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>eh :History<CR>
