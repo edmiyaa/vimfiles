@@ -7,24 +7,20 @@ syn match taskStatusTodo '\[TODO]'
 syn match taskStatusInProgress '\[INPROGRESS]'
 syn match taskStatusWaiting '\[WAITING]'
 syn match taskStatusTesting '\[TESTING]'
-syn match taskStatusDone '\[DONE]' nextgroup=taskDoneTextDescription
-syn match taskStatusDiscarded '\[DISCARDED]'
-
-syn match taskDoneTextDescription '.*$' contained
+syn match taskStatusDone '\[DONE].*$'
+syn match taskStatusDiscarded '\[DISCARDED].*$'
 
 syn match taskDash '^\s\+-'
 syn match day '^\[\d\{4}-\d\{2}-\d\{2}]'
 
-hi taskStatusTodo guifg=Red gui=bold
-hi taskStatusInProgress guifg=Yellow gui=bold
-hi taskStatusWaiting guifg=Orange gui=bold
-hi taskStatusTesting guifg=Green gui=bold
-hi taskStatusDone guifg=DarkGray gui=bold
-hi taskStatusDiscarded guifg=DarkGray gui=bold
+hi def link taskStatusTodo GruvboxRedBold
+hi def link taskStatusInProgress GruvboxYellowBold
+hi def link taskStatusWaiting GruvboxOrangeBold
+hi def link taskStatusTesting GruvboxGreenBold
+hi def link taskStatusDone GruvboxGray
+hi def link taskStatusDiscarded GruvboxGray
 
-hi taskDoneTextDescription guifg=DarkGray
-
-hi day guifg=Cyan gui=bold
+hi def link day GruvboxPurpleBold
 hi taskDash gui=bold
 
 let b:current_syntax = 'edusan'
