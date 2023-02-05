@@ -1,5 +1,7 @@
+let g:vimrc_dir = fnamemodify($MYVIMRC, ':p:h')
+
 " External programs
-let $PATH .= ';' . fnamemodify($MYVIMRC, ':p:h') . '/plugged/fzf/bin'
+let $PATH .= ';' . g:vimrc_dir . '/plugged/fzf/bin'
 let $PATH .= ';' . $HOME . '/node-v18.13.0-win-x64'
 let $PATH .= ';' . $HOME . '/ripgrep-13.0.0-x86_64-pc-windows-msvc'
 
@@ -89,6 +91,14 @@ let g:which_key_map.g = {
     \ 'g': 'G',
 \ }
 
+let g:which_key_map.s = {
+    \ 'name': '+search',
+    \ 'f': {
+    \     'name': '+files',
+    \     'v': '$MYVIMRC directory',
+    \ },
+\ }
+
 "################
 "# vim-fugitive #
 "################
@@ -139,6 +149,7 @@ endf
 
 nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>eh :History<CR>
+nnoremap <leader>sfv :call SearchFiles(g:vimrc_dir)<CR>
 
 "##################
 "# GENERAL CONFIG #
