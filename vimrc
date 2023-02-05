@@ -129,7 +129,7 @@ endf
 fun! SearchFiles(...)
     let rootdir = get(a:, 1, '.')
     execute 'cd ' . rootdir
-    execute 'Files! '
+    Files!
 endf
 
 nnoremap <leader>bb :Buffers<CR>
