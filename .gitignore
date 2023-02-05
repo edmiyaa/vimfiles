@@ -2,6 +2,7 @@
 
 !.gitignore
 !vimrc
+!coc-settings.json
 
 !syntax/
 !syntax/*.vim
