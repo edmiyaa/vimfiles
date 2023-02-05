@@ -118,6 +118,7 @@ nnoremap <leader>ci :call CocAction('showIncomingCalls')<CR>
 nnoremap <leader>co :call CocAction('showOutgoingCalls')<CR>
 nnoremap <leader>cr :call CocAction('refactor')<CR>
 nnoremap <leader>ct :CocOutline<CR>
+nnoremap <leader>cu :call CocAction('jumpReferences')<CR>
 
 nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>eh :History<CR>
