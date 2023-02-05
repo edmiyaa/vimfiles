@@ -1,7 +1,7 @@
- func! UsdSearchAssetPath()
-     let @/ = '@\zs.*\ze@'
-     execute "normal /\<CR>"
- endfun
+func! UsdSearchAssetPath()
+    let @/ = '@\zs.*\ze@'
+    execute "normal /\<CR>"
+endfun
 
 let g:which_key_map.u = {
     \ 'name': '+usd',
@@ -10,6 +10,6 @@ let g:which_key_map.u = {
     \     'a': 'asset path',
     \ },
 \ }
- 
- nnoremap <leader>usa :call UsdSearchAssetPath()<CR>
+
+nnoremap <leader>usa :call UsdSearchAssetPath()<CR>
 
