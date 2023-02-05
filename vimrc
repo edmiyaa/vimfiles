@@ -60,6 +60,7 @@ let g:which_key_map.c = {
     \ 'o': 'Show outgoing calls',
     \ 'r': 'Refactor name under cursor',
     \ 't': 'Open outline',
+    \ 'u': 'Show references',
 \ }
 
 let g:which_key_map.e = {
