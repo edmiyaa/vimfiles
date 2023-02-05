@@ -101,6 +101,19 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 let $FZF_DEFAULT_OPTS='--reverse --exact'
 
+fun! SearchInFiles(...)
+    let rootdir = get(a:, 1, '.')
+    let pattern = input('Pattern: ')
+    execute 'cd ' . rootdir
+    execute 'Rg! ' . pattern
+endf
+
+fun! SearchFiles(...)
+    let rootdir = get(a:, 1, '.')
+    execute 'cd ' . rootdir
+    execute 'Files! '
+endf
+
 "#############
 "# SHORTCUTS #
 "#############
