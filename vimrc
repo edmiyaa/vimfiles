@@ -1,3 +1,8 @@
+" External programs
+let $PATH .= ';' . fnamemodify($MYVIMRC, ':p:h') . '/plugged/fzf/bin'
+let $PATH .= ';' . $HOME . '/node-v18.13.0-win-x64'
+let $PATH .= ';' . $HOME . '/ripgrep-13.0.0-x86_64-pc-windows-msvc'
+
 " Redefine mapleader before installing any plugins
 let mapleader = "\<Space>"
 
