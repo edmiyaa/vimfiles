@@ -49,38 +49,46 @@ call which_key#register('<Space>', 'g:which_key_map')
 let g:which_key_map = {}
 
 let g:which_key_map.b = {
-    \ 'name': 'Buffers',
-    \ 'b': 'Switch to buffer',
+    \ 'name': '+buffers',
+    \ 'b': 'switch to buffer',
 \ }
 
 let g:which_key_map.c = {
-    \ 'name': 'Code',
-    \ 'd': 'Go to definition of name under cursor',
-    \ 'i': 'Show incoming calls',
-    \ 'o': 'Show outgoing calls',
-    \ 'r': 'Refactor name under cursor',
-    \ 't': 'Open outline',
-    \ 'u': 'Show references',
+    \ 'name': '+code',
+    \ 'r': {
+    \     'name': '+refactor',
+    \     'r': 'refactor symbol under cursor',
+    \ },
+    \ 's': {
+    \     'name': '+show',
+    \     'd': 'definition of symbol under cursor',
+    \     'i': 'incoming calls',
+    \     'o': 'outgoing calls',
+    \     'r': 'references',
+    \     't': 'outline',
+    \ },
 \ }
 
 let g:which_key_map.e = {
-    \ 'name': 'Edit Files',
-    \ 'c': 'Edit file from clipboard',
-    \ 'h': 'Edit file from history',
-    \ 'v': 'Edit $MYVIMRC',
+    \ 'name': '+edit',
+    \ 'c': 'from clipboard',
+    \ 'h': 'from history',
+    \ 's': 'save and source current file',
+    \ 'v': '$MYVIMRC',
 \ }
 
 let g:which_key_map.g = {
-    \ 'name': 'Git',
-    \ 'd': 'GitGutterDiffOrig',
-    \ 'f': 'GitGutterFold',
-    \ 'g': 'VimFugitive',
+    \ 'name': '+git',
+    \ 'd': 'diff with original',
+    \ 'f': 'diff fold',
+    \ 'g': 'G',
 \ }
 
-let g:which_key_map.o = {
-    \ 'name': 'Other',
-    \ 's': 'Save and source current file',
-\ }
+"################
+"# vim-fugitive #
+"################
+
+nnoremap <leader>gg :vertical botright G<CR>
 
 "#################
 "# vim-gitgutter #
@@ -88,12 +96,22 @@ let g:which_key_map.o = {
 
 let g:gitgutter_map_keys = 0
 
+nnoremap <leader>gd :GitGutterDiffOrig<CR>
+nnoremap <leader>gf :GitGutterFold<CR>
+
 "############
 "# coc.nvim #
 "############
 
 inoremap <expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "<tab>"
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+nnoremap <leader>crr :call CocAction('refactor')<CR>
+nnoremap <leader>csd :call CocAction('jumpDefinition')<CR>
+nnoremap <leader>csi :call CocAction('showIncomingCalls')<CR>
+nnoremap <leader>cso :call CocAction('showOutgoingCalls')<CR>
+nnoremap <leader>csr :call CocAction('jumpReferences')<CR>
+nnoremap <leader>cst :CocOutline<CR>
 
 "###########
 "# fzf.vim #
@@ -113,26 +131,6 @@ fun! SearchFiles(...)
     execute 'cd ' . rootdir
     execute 'Files! '
 endf
-
-"#############
-"# SHORTCUTS #
-"#############
-
-nnoremap <leader>ev :e! $MYVIMRC<CR>
-nnoremap <leader>ec :exec 'e ' . trim(@*, "\"'")<CR>
-
-nnoremap <leader>os :w<CR>:source %<CR>
-
-nnoremap <leader>gg :vertical botright G<CR>
-nnoremap <leader>gd :GitGutterDiffOrig<CR>
-nnoremap <leader>gf :GitGutterFold<CR>
-
-nnoremap <leader>cd :call CocAction('jumpDefinition')<CR>
-nnoremap <leader>ci :call CocAction('showIncomingCalls')<CR>
-nnoremap <leader>co :call CocAction('showOutgoingCalls')<CR>
-nnoremap <leader>cr :call CocAction('refactor')<CR>
-nnoremap <leader>ct :CocOutline<CR>
-nnoremap <leader>cu :call CocAction('jumpReferences')<CR>
 
 nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>eh :History<CR>
@@ -183,4 +181,8 @@ set timeoutlen=500
 set updatetime=100
 set numberwidth=1
 set clipboard=unnamed
+
+nnoremap <leader>ev :e! $MYVIMRC<CR>
+nnoremap <leader>ec :exec 'e ' . trim(@*, "\"'")<CR>
+nnoremap <leader>es :w<CR>:source %<CR>
 
