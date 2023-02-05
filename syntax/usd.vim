@@ -96,4 +96,4 @@ highlight link usdaAssign Delimiter
 syntax match usdaArrayCont "\v\,"
 highlight link usdaArrayCont Delimiter
 
-let b:current_syntax = "usda"
+let b:current_syntax = "usd"

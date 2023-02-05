@@ -7,6 +7,12 @@
 !syntax/*.vim
 
 !plugin/
-!plugin/usd.vim
-!plugin/edusan-todo.vim
+!plugin/*.vim
+
+!ftdetect/
+!ftdetect/*.vim
+
+!ftplugin/
+!ftplugin/usd/
+!ftplugin/usd/*.vim
 
