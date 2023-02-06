@@ -9,11 +9,9 @@
 
 !plugin/
 !plugin/*.vim
+!plugin/usd/
+!plugin/usd/*.vim
 
 !ftdetect/
 !ftdetect/*.vim
-
-!ftplugin/
-!ftplugin/usd/
-!ftplugin/usd/*.vim
 
