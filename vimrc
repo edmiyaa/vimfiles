@@ -63,18 +63,21 @@ let g:which_key_map.b = {
 
 let g:which_key_map.c = {
     \ 'name': '+code',
+    \ 'g': {
+    \     'name': '+go_to',
+    \     'd': 'definition of symbol under cursor',
+    \ },
+    \ 'l': {
+    \     'name': '+list',
+    \     'i': 'incoming calls',
+    \     'o': 'outgoing calls',
+    \     'r': 'references',
+    \ },
     \ 'r': {
     \     'name': '+refactor',
     \     'r': 'refactor symbol under cursor',
     \ },
-    \ 's': {
-    \     'name': '+show',
-    \     'd': 'definition of symbol under cursor',
-    \     'i': 'incoming calls',
-    \     'o': 'outgoing calls',
-    \     'r': 'references',
-    \     't': 'outline',
-    \ },
+    \ 'o': 'outline',
 \ }
 
 let g:which_key_map.e = {
@@ -123,11 +126,11 @@ inoremap <expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "<tab>"
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 nnoremap <leader>crr :call CocAction('refactor')<CR>
-nnoremap <leader>csd :call CocAction('jumpDefinition')<CR>
-nnoremap <leader>csi :call CocAction('showIncomingCalls')<CR>
-nnoremap <leader>cso :call CocAction('showOutgoingCalls')<CR>
-nnoremap <leader>csr :call CocAction('jumpReferences')<CR>
-nnoremap <leader>cst :CocOutline<CR>
+nnoremap <leader>cgd :call CocAction('jumpDefinition')<CR>
+nnoremap <leader>cli :call CocAction('showIncomingCalls')<CR>
+nnoremap <leader>clo :call CocAction('showOutgoingCalls')<CR>
+nnoremap <leader>clr :call CocAction('jumpReferences')<CR>
+nnoremap <leader>co :CocOutline<CR>
 
 "###########
 "# fzf.vim #
