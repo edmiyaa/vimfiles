@@ -78,6 +78,10 @@ let g:which_key_map.c = {
     \     'r': 'refactor symbol under cursor',
     \ },
     \ 'o': 'outline',
+    \ 'x': {
+    \     'name': '+execute',
+    \     'p': 'save and execute with python',
+    \ },
 \ }
 
 let g:which_key_map.e = {
@@ -205,4 +209,5 @@ set clipboard=unnamed
 nnoremap <leader>ev :e! $MYVIMRC<CR>
 nnoremap <leader>ec :exec 'e ' . trim(@*, "\"'")<CR>
 nnoremap <leader>es :w<CR>:source %<CR>
+nnoremap <leader>cxp :w<CR>:!python %<CR>
 
