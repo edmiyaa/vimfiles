@@ -5,6 +5,7 @@ let $PATH .= ';' . g:vimrc_dir . '/plugged/fzf/bin'
 let $PATH .= ';' . $HOME . '/node-v18.13.0-win-x64'
 let $PATH .= ';' . $HOME . '/ripgrep-13.0.0-x86_64-pc-windows-msvc'
 let $PATH .= ';' . $HOME . '/bat-v0.22.1-x86_64-pc-windows-msvc'
+let $PYTHONHOME = 'C:/Python27'
 
 " Redefine mapleader before installing any plugins
 let mapleader = "\<Space>"
