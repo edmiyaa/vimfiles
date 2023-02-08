@@ -15,3 +15,6 @@
 !ftdetect/
 !ftdetect/*.vim
 
+!_houdini/
+!_houdini/vimrc
+

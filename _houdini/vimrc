@@ -1,0 +1,22 @@
+" When opening Vim from inside Houdini, it overrides certain variables. Here
+" we override those overrides with the proper values
+if $HOME =~ 'houdini$'
+    " Houdini overrides the $HOME variable
+    let $HOME='C:/Users/eduardo.miyashiro'
+    " Fixes plugins not being loaded
+    let &runtimepath = 'C:/Users/eduardo.miyashiro/vimfiles,' . &runtimepath
+
+    py import sys; sys.path.append('C:/Users/eduardo.miyashiro/vimfiles/plugin/usd/py')
+    py import sys; sys.path.append('C:/Users/eduardo.miyashiro/vimsda/py')
+    " Fixes 'No Qt binding were found' error
+    py import sys; sys.path.append('C:/Python27/lib/site-packages')
+
+    " Houdini overrides the $HOME variable
+    py import os; os.environ['HOME'] = 'C:/Users/eduardo.miyashiro'
+    " Add paths to programs
+    py import os; os.environ['PATH'] += ';C:/Users/eduardo.miyashiro/vimfiles/plugged/fzf/bin'
+    py import os; os.environ['PATH'] += ';C:/Users/eduardo.miyashiro/node-v18.13.0-win-x64'
+    py import os; os.environ['PATH'] += ';C:/Users/eduardo.miyashiro/ripgrep-13.0.0-x86_64-pc-windows-msvc'
+    py import os; os.environ['PATH'] += ';C:/Users/eduardo.miyashiro/bat-v0.22.1-x86_64-pc-windows-msvc'
+endif
+
