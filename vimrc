@@ -207,8 +207,16 @@ set updatetime=100
 set numberwidth=1
 set clipboard=unnamed
 
+func! EditFilepathUnderCursor()
+    let filepath = expand('<cfile>')
+    let trimmed_filepath = trim(filepath, "@")
+    echo 'Opening file: ' . trimmed_filepath
+    silent exec 'e ' . trimmed_filepath
+endf
+
 nnoremap <leader>ev :e! $MYVIMRC<CR>
 nnoremap <leader>ec :exec 'e ' . trim(@*, "\"'")<CR>
 nnoremap <leader>es :w<CR>:source %<CR>
 nnoremap <leader>cxp :w<CR>:!python %<CR><CR>
+nnoremap <CR> :call EditFilepathUnderCursor()<CR>
 
