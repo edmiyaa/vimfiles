@@ -1,7 +1,7 @@
 " Vim syntax file
-" Language: Edusan's TODO file
+" Language: TODO file
 " Maintainer: Eduardo Miyashiro Asato
-" Filenames: *.edusan
+" Filenames: *.todo
 
 syn match taskStatusTodo '\[TODO]'
 syn match taskStatusInProgress '\[INPROGRESS]'
@@ -23,5 +23,5 @@ hi def link taskStatusDiscarded NonText
 hi def link day WildMenu
 hi taskDash gui=bold
 
-let b:current_syntax = 'edusan'
+let b:current_syntax = 'todo'
 
