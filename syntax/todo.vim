@@ -7,7 +7,9 @@ syn match taskStatusTodo '\[TODO]'
 syn match taskStatusInProgress '\[INPROGRESS]'
 syn match taskStatusWaiting '\[WAITING]'
 syn match taskStatusTesting '\[TESTING]'
-syn match taskStatusDone '\[DONE].*$'
+" syn match taskStatusDone '\[DONE].*$'
+syn match taskStatusDone '\( *\)\[DONE].*\(\n \1.*\)*'
+
 syn match taskStatusDiscarded '\[DISCARDED].*$'
 
 syn match taskDash '^\s\+-'
