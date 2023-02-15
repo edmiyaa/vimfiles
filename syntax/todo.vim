@@ -7,8 +7,7 @@ syn match taskStatusTodo '\[TODO]'
 syn match taskStatusInProgress '\[INPROGRESS]'
 syn match taskStatusWaiting '\[WAITING]'
 syn match taskStatusTesting '\[TESTING]'
-" syn match taskStatusDone '\[DONE].*$'
-syn match taskStatusDone '\( *\)\[DONE].*\(\n \1.*\)*'
+syn match taskStatusDone '\( *\)\[DONE].*\(\n\1 \+.*\)*'
 
 syn match taskStatusDiscarded '\[DISCARDED].*$'
 
@@ -24,6 +23,8 @@ hi def link taskStatusDiscarded NonText
 
 hi def link day WildMenu
 hi taskDash gui=bold
+
+syntax sync fromstart
 
 let b:current_syntax = 'todo'
 
