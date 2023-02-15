@@ -18,8 +18,8 @@ hi def link taskStatusTodo WarningMsg
 hi def link taskStatusInProgress ModeMsg
 hi def link taskStatusWaiting Question
 hi def link taskStatusTesting Title
-hi def link taskStatusDone NonText
-hi def link taskStatusDiscarded NonText
+hi def link taskStatusDone LineNr
+hi def link taskStatusDiscarded LineNr
 
 hi def link day WildMenu
 hi taskDash gui=bold
