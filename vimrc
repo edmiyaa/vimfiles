@@ -1,10 +1,14 @@
 let g:vimrc_dir = fnamemodify($MYVIMRC, ':p:h')
+let g:vim_libs_dir = $HOME . '/vim_libs'
 
-" External programs
+" External libs
 let $PATH .= ';' . g:vimrc_dir . '/plugged/fzf/bin'
-let $PATH .= ';' . $HOME . '/node-v18.13.0-win-x64'
-let $PATH .= ';' . $HOME . '/ripgrep-13.0.0-x86_64-pc-windows-msvc'
-let $PATH .= ';' . $HOME . '/bat-v0.22.1-x86_64-pc-windows-msvc'
+let $PATH .= ';' . g:vim_libs_dir . '/node'
+let $PATH .= ';' . g:vim_libs_dir . '/ripgrep'
+let $PATH .= ';' . g:vim_libs_dir . '/bat'
+let $PATH .= ';' . g:vim_libs_dir . '/pixar_usd/lib'
+let $PATH .= ';' . g:vim_libs_dir . '/pixar_usd/bin'
+let $PYTHONPATH .= ';' . g:vim_libs_dir . '/pixar_usd/lib/python'
 let $PYTHONHOME = 'C:/Python27'
 
 " Redefine mapleader before installing any plugins
