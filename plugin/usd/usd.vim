@@ -40,5 +40,5 @@ nnoremap <leader>uld :call UsdListDependencies(expand('%:p'))<CR>
 nnoremap <leader>usa :call UsdSearchAssetPath()<CR>
 
 autocmd BufRead *.usdc call ConvertUsdcToUsda()
-" autocmd BufWrite *.usdc call ConvertUsdaToUsdc()
+" cabbrev <buffer> w call ConvertUsdaToUsdc()
 
