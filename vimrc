@@ -45,6 +45,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'morhetz/gruvbox'
+Plug 'preservim/nerdtree'
 call plug#end()
 
 " Install plugins if the init flag was set
@@ -112,6 +113,10 @@ let g:which_key_map.s = {
     \ },
 \ }
 
+let g:which_key_map.n = {
+    \ 'name': 'nerdtree',
+\ }
+
 "################
 "# vim-fugitive #
 "################
@@ -163,6 +168,12 @@ endf
 nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>eh :History<CR>
 nnoremap <leader>sfv :call SearchFiles(g:vimrc_dir)<CR>
+
+"############
+"# nerdtree #
+"############
+"
+nnoremap <leader>n :NERDTree<CR>
 
 "##################
 "# GENERAL CONFIG #
