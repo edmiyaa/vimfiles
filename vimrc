@@ -98,19 +98,19 @@ let g:which_key_map.e = {
     \ 'v': '$MYVIMRC',
 \ }
 
+let g:which_key_map.f = {
+    \ 'name': '+find',
+    \ 'f': {
+    \     'name': '+files',
+    \     'v': '$MYVIMRC directory',
+    \ },
+\ }
+
 let g:which_key_map.g = {
     \ 'name': '+git',
     \ 'd': 'diff with original',
     \ 'f': 'diff fold',
     \ 'g': 'G',
-\ }
-
-let g:which_key_map.s = {
-    \ 'name': '+search',
-    \ 'f': {
-    \     'name': '+files',
-    \     'v': '$MYVIMRC directory',
-    \ },
 \ }
 
 let g:which_key_map.n = {
@@ -167,7 +167,7 @@ endf
 
 nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>eh :History<CR>
-nnoremap <leader>sfv :call SearchFiles(g:vimrc_dir)<CR>
+nnoremap <leader>ffv :call SearchFiles(g:vimrc_dir)<CR>
 
 "############
 "# nerdtree #
