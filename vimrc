@@ -9,7 +9,7 @@ let $PATH .= ';' . g:vim_libs_dir . '/bat'
 let $PATH .= ';' . g:vim_libs_dir . '/pixar_usd/lib'
 let $PATH .= ';' . g:vim_libs_dir . '/pixar_usd/bin'
 let $PYTHONPATH .= ';' . g:vim_libs_dir . '/pixar_usd/lib/python'
-let $PYTHONHOME = 'C:/Python27'
+let $PYTHONHOME = $HOME . '/vim_pyenv'
 
 " Redefine mapleader before installing any plugins
 let mapleader = "\<Space>"
