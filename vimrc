@@ -1,7 +1,7 @@
 let g:vimrc_dir = fnamemodify($MYVIMRC, ':p:h')
 let g:vim_libs_dir = $HOME . '/vim_libs'
 
-" External libs
+" External programs/libs
 let $PATH .= ';' . g:vimrc_dir . '/plugged/fzf/bin'
 let $PATH .= ';' . g:vim_libs_dir . '/node'
 let $PATH .= ';' . g:vim_libs_dir . '/ripgrep'
@@ -136,7 +136,7 @@ nnoremap <leader>gf :GitGutterFold<CR>
 "# coc.nvim #
 "############
 
-inoremap <expr> <tab> coc#pum#visible() ? coc#pum#confirm() : "<tab>"
+inoremap <expr> <tab> coc#pum#visible() ? coc#pum#confirm() : '<tab>'
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 nnoremap <leader>crr :call CocAction('refactor')<CR>
