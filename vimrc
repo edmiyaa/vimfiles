@@ -19,7 +19,7 @@ let mapleader = "\<Space>"
 "####################
 
 let vimplug_url = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-let vimplug_path = fnamemodify($MYVIMRC, ':p:h') . '/autoload/plug.vim'
+let vimplug_path = G:g:vimrc_dir . '/autoload/plug.vim'
 let init = 0
 
 " If vim-plug is not installed, assume this is a new Vim installation
