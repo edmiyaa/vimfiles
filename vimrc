@@ -119,6 +119,11 @@ let g:which_key_map.n = {
     \ 'name': 'nerdtree',
 \ }
 
+let g:which_key_map.p = {
+    \ 'name': '+python',
+    \ 'r': 'repl',
+\ }
+
 "################
 "# vim-fugitive #
 "################
@@ -228,5 +233,5 @@ nnoremap <leader>ev :e! $MYVIMRC<CR>
 nnoremap <leader>ec :exec 'e ' . trim(@*, "\"'")<CR>
 nnoremap <leader>es :w<CR>:source %<CR>
 nnoremap <leader>cxp :w<CR>:!python %<CR><CR>
-nnoremap <leadeR>t :exec 'vertical botright terminal ptpython --config-dir=' . ptpython_config_dir<CR>
+nnoremap <leadeR>pr :exec 'vertical botright terminal ptpython --config-dir=' . ptpython_config_dir<CR>
 
