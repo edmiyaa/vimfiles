@@ -124,6 +124,14 @@ let g:which_key_map.p = {
     \ 'r': 'repl',
 \ }
 
+let g:which_key_map.t = {
+    \ 'name': '+tabs',
+    \ 'c': 'create tab',
+    \ 'd': 'delete tab',
+    \ 'n': 'next tab',
+    \ 'p': 'previous tab',
+\ }
+
 "################
 "# vim-fugitive #
 "################
@@ -233,5 +241,9 @@ nnoremap <leader>ev :e! $MYVIMRC<CR>
 nnoremap <leader>ec :exec 'e ' . trim(@*, "\"'")<CR>
 nnoremap <leader>es :w<CR>:source %<CR>
 nnoremap <leader>cxp :w<CR>:!python %<CR><CR>
+nnoremap <leader>tc :tabnew<CR>
+nnoremap <leader>td :tabclose<CR>
+nnoremap <leader>tn :tabnext<CR>
+nnoremap <leader>tp :tabprevious<CR>
 nnoremap <leadeR>pr :exec 'vertical botright terminal ptpython --config-dir=' . ptpython_config_dir<CR>
 
