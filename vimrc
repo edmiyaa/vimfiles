@@ -1,5 +1,6 @@
 let g:vimrc_dir = fnamemodify($MYVIMRC, ':p:h')
 let g:vim_libs_dir = $HOME . '/vim_libs'
+let g:ptpython_config_dir = g:vimrc_dir . '/ptpython'
 
 " External programs/libs
 let $PATH .= ';' . g:vimrc_dir . '/plugged/fzf/bin'
@@ -10,6 +11,7 @@ let $PATH .= ';' . g:vim_libs_dir . '/pixar_usd/lib'
 let $PATH .= ';' . g:vim_libs_dir . '/pixar_usd/bin'
 let $PYTHONPATH .= ';' . g:vim_libs_dir . '/pixar_usd/lib/python'
 let $PYTHONHOME = $HOME . '/vim_pyenv'
+let $PATH .= ';' . $PYTHONHOME . '/Scripts'
 
 " Redefine mapleader before installing any plugins
 let mapleader = "\<Space>"
@@ -226,4 +228,5 @@ nnoremap <leader>ev :e! $MYVIMRC<CR>
 nnoremap <leader>ec :exec 'e ' . trim(@*, "\"'")<CR>
 nnoremap <leader>es :w<CR>:source %<CR>
 nnoremap <leader>cxp :w<CR>:!python %<CR><CR>
+nnoremap <leadeR>t :exec 'vertical botright terminal ptpython --config-dir=' . ptpython_config_dir<CR>
 

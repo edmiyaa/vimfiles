@@ -21,3 +21,6 @@
 !_houdini/
 !_houdini/vimrc
 
+!ptpython/
+!ptpython/config.py
+
