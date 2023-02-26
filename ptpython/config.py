@@ -6,4 +6,5 @@ def configure(repl):
     repl.completion_visualisation = CompletionVisualisation.NONE
     repl.use_code_colorscheme('vim')
     repl.show_status_bar = False
+    repl.confirm_exit = False
 
