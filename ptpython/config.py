@@ -8,4 +8,5 @@ def configure(repl):
     repl.show_docstring = True
     repl.enable_fuzzy_completion = True
     repl.use_code_colorscheme('vim')
+    repl.confirm_exit = False
 
