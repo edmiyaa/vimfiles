@@ -3,16 +3,16 @@
 " Maintainer: Eduardo Miyashiro Asato
 " Filenames: *.todo
 
-syn match taskStatusTodo '\[TODO]'
-syn match taskStatusInProgress '\[INPROGRESS]'
-syn match taskStatusWaiting '\[WAITING]'
-syn match taskStatusTesting '\[TESTING]'
-syn match taskStatusDone '\( *\)\[DONE].*\(\n\1 \+.*\)*'
+syn match taskStatusTodo /\v\[TODO\]/
+syn match taskStatusInProgress /\v\[INPROGRESS\]/
+syn match taskStatusWaiting /\v\[WAITING\]/
+syn match taskStatusTesting /\v\[TESTING\]/
+syn match taskStatusDone /\v( *)\[DONE\].*(\n\1 +.*)*/  " Why does \W don't match - ?
 
-syn match taskStatusDiscarded '\[DISCARDED].*$'
+syn match taskStatusDiscarded /\v\[DISCARDED\].*$/
 
-syn match taskDash '^\s\+-'
-syn match day '^\[\d\{4}-\d\{2}-\d\{2}]'
+syn match taskDash /^\s+-/
+syn match day /\v^\[\d{4}-\d{2}-\d{2}\]/
 
 hi def link taskStatusTodo WarningMsg
 hi def link taskStatusInProgress ModeMsg
