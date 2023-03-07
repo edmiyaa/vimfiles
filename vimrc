@@ -67,6 +67,7 @@ let g:which_key_map = {}
 let g:which_key_map.b = {
     \ 'name': '+buffers',
     \ 'b': 'switch to buffer',
+    \ 'c': 'copy current filepath',
 \ }
 
 let g:which_key_map.c = {
@@ -237,6 +238,7 @@ set updatetime=100
 set numberwidth=1
 set clipboard=unnamed
 
+nnoremap <leader>bc :let @* = expand('%:p')<CR>
 nnoremap <leader>ev :e! $MYVIMRC<CR>
 nnoremap <leader>ec :exec 'e ' . trim(@*, "\"'")<CR>
 nnoremap <leader>es :w<CR>:source %<CR>
