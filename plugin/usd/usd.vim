@@ -14,11 +14,11 @@ func! UsdListDependencies(usdpath)
     py usd.list_usd_dependencies(usd.vim.eval('a:usdpath'))
 endf
 
-func! ConvertUsdcToUsda()
+func! Usdc2Usda()
     silent execute '%!usdcat ' . expand('%:p')
 endf
 
-func! ConvertUsdaToUsdc()
+func! Usda2Usdc()
     let tempfile = tempname() . '.usda'
     call writefile(getline(1, '$'), tempfile)
     silent execute '!usdcat -o ' . expand('%:p') . ' ' . tempfile
@@ -39,5 +39,5 @@ let g:which_key_map.u = {
 nnoremap <leader>uld :call UsdListDependencies(expand('%:p'))<CR>
 nnoremap <leader>usa :call UsdSearchAssetPath()<CR>
 
-autocmd BufRead *.usdc call ConvertUsdcToUsda()
+autocmd BufRead *.usdc call Usdc2Usda()
 
