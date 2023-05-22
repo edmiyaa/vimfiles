@@ -46,7 +46,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
-Plug 'morhetz/gruvbox'
 Plug 'preservim/nerdtree'
 call plug#end()
 
@@ -197,7 +196,7 @@ nnoremap <leader>n :NERDTree<CR>
 
 syntax on
 filetype plugin indent on
-colorscheme gruvbox
+colorscheme retrobox
 
 "Start Vim in fullscreen mode
 autocmd GUIEnter * simalt ~x
