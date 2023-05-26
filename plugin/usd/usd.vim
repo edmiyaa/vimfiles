@@ -28,16 +28,13 @@ let g:which_key_map.u = {
     \ 'name': '+usd',
     \ 'l': {
     \     'name': '+list',
-    \     'd': 'dependencies of current file',
+    \     'd': [':call UsdListDependencies(expand("%:p"))', 'dependencies of current file'],
     \ },
     \ 's': {
     \     'name': '+search',
-    \     'a': 'asset path',
+    \     'a': [':call UsdSearchAssetPath()', 'asset path'],
     \ },
 \ }
-
-nnoremap <leader>uld :call UsdListDependencies(expand('%:p'))<CR>
-nnoremap <leader>usa :call UsdSearchAssetPath()<CR>
 
 autocmd BufRead *.usdc call Usdc2Usda()
 
