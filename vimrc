@@ -106,18 +106,18 @@ let g:which_key_map.f = {
     \ },
 \ }
 
-let g:which_key_map.m = {
-    \ 'name': '+misc',
-    \ 'c': [':call CopyCurrentFilepath()', 'copy current filepath'],
-    \ 'e': [':!start explorer /select,%:p', 'show current file in windows explorer'],
-    \ 's': [':w | :source %', 'save and source current file'],
-\ }
-
 let g:which_key_map.g = {
     \ 'name': '+git',
     \ 'd': ['GitGutterDiffOrig', 'diff with original'],
     \ 'f': ['GitGutterFold', 'diff fold'],
     \ 'g': [':vertical botright G', 'G'],
+\ }
+
+let g:which_key_map.m = {
+    \ 'name': '+misc',
+    \ 'c': [':call CopyCurrentFilepath()', 'copy current filepath'],
+    \ 'e': [':!start explorer /select,%:p', 'show current file in windows explorer'],
+    \ 's': [':w | :source %', 'save and source current file'],
 \ }
 
 let g:which_key_map.n = ['NERDTree', 'nerdtree']
