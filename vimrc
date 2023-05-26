@@ -65,78 +65,70 @@ let g:which_key_map = {}
 
 let g:which_key_map.b = {
     \ 'name': '+buffers',
-    \ 'b': 'switch to buffer',
-    \ 'c': 'copy current filepath',
+    \ 'b': ['Buffers', 'switch to buffer'],
+    \ 'c': [':call CopyCurrentFilepath()', 'copy current filepath'],
 \ }
 
 let g:which_key_map.c = {
     \ 'name': '+code',
     \ 'g': {
     \     'name': '+go_to',
-    \     'd': 'definition of symbol under cursor',
+    \     'd': [':call CocAction("jumpDefinition")', 'definition of symbol under cursor'],
     \ },
     \ 'l': {
     \     'name': '+list',
-    \     'i': 'incoming calls',
-    \     'o': 'outgoing calls',
-    \     'r': 'references',
+    \     'i': [':call CocAction("showIncomingCalls")', 'incoming calls'],
+    \     'o': [':call CocAction("showOutgoingCalls")', 'outgoing calls'],
+    \     'r': [':call CocAction("jumpReferences")', 'references'],
     \ },
     \ 'r': {
     \     'name': '+refactor',
-    \     'r': 'refactor symbol under cursor',
+    \     'r': [':call CocAction("refactor")', 'refactor symbol under cursor'],
     \ },
-    \ 'o': 'outline',
+    \ 'o': ['CocOutline', 'outline'],
     \ 'x': {
     \     'name': '+execute',
-    \     'p': 'save and execute with python',
+    \     'p': [':w | :!python %', 'save and execute with python'],
     \ },
 \ }
 
 let g:which_key_map.e = {
     \ 'name': '+edit',
-    \ 'c': 'from clipboard',
-    \ 'h': 'from history',
-    \ 's': 'save and source current file',
-    \ 'v': '$MYVIMRC',
+    \ 'c': [':call EditFromClipboard()', 'edit from clipboard'],
+    \ 'h': ['History', 'edit from history'],
+    \ 's': [':w | :source %', 'save and source current file'],
+    \ 'v': [':e! $MYVIMRC', '$MYVIMRC'],
 \ }
 
 let g:which_key_map.f = {
     \ 'name': '+find',
     \ 'f': {
     \     'name': '+files',
-    \     'v': '$MYVIMRC directory',
+    \     'v': [':call SearchFiles(g:vimrc_dir)', '$MYVIMRC directory'],
     \ },
 \ }
 
 let g:which_key_map.g = {
     \ 'name': '+git',
-    \ 'd': 'diff with original',
-    \ 'f': 'diff fold',
-    \ 'g': 'G',
+    \ 'd': ['GitGutterDiffOrig', 'diff with original'],
+    \ 'f': ['GitGutterFold', 'diff fold'],
+    \ 'g': [':vertical botright G', 'G'],
 \ }
 
-let g:which_key_map.n = {
-    \ 'name': 'nerdtree',
-\ }
+let g:which_key_map.n = ['NERDTree', 'nerdtree']
 
 let g:which_key_map.p = {
     \ 'name': '+python',
-    \ 'r': 'repl',
+    \ 'r': [':vertical botright terminal ptpython --config-dir=ptpython_config_dir', 'repl'],
 \ }
 
 let g:which_key_map.t = {
     \ 'name': '+tabs',
-    \ 'c': 'create tab',
-    \ 'd': 'delete tab',
-    \ 'n': 'next tab',
-    \ 'p': 'previous tab',
+    \ 'c': ['tabnew', 'create tab'],
+    \ 'd': ['tabclose', 'delete tab'],
+    \ 'n': ['tabnext', 'next tab'],
+    \ 'p': ['tabprevious', 'previous tab'],
 \ }
-
-"################
-"# vim-fugitive #
-"################
-
-nnoremap <leader>gg :vertical botright G<CR>
 
 "#################
 "# vim-gitgutter #
@@ -144,22 +136,12 @@ nnoremap <leader>gg :vertical botright G<CR>
 
 let g:gitgutter_map_keys = 0
 
-nnoremap <leader>gd :GitGutterDiffOrig<CR>
-nnoremap <leader>gf :GitGutterFold<CR>
-
 "############
 "# coc.nvim #
 "############
 
 inoremap <expr> <tab> coc#pum#visible() ? coc#pum#confirm() : '<tab>'
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
-nnoremap <leader>crr :call CocAction('refactor')<CR>
-nnoremap <leader>cgd :call CocAction('jumpDefinition')<CR>
-nnoremap <leader>cli :call CocAction('showIncomingCalls')<CR>
-nnoremap <leader>clo :call CocAction('showOutgoingCalls')<CR>
-nnoremap <leader>clr :call CocAction('jumpReferences')<CR>
-nnoremap <leader>co :CocOutline<CR>
 
 "###########
 "# fzf.vim #
@@ -179,16 +161,6 @@ fun! SearchFiles(...)
     execute 'cd ' . rootdir
     Files!
 endf
-
-nnoremap <leader>bb :Buffers<CR>
-nnoremap <leader>eh :History<CR>
-nnoremap <leader>ffv :call SearchFiles(g:vimrc_dir)<CR>
-
-"############
-"# nerdtree #
-"############
-"
-nnoremap <leader>n :NERDTree<CR>
 
 "##################
 "# GENERAL CONFIG #
@@ -237,14 +209,19 @@ set updatetime=100
 set numberwidth=1
 set clipboard=unnamed
 
-nnoremap <leader>bc :let @* = expand('%:p')<CR>
-nnoremap <leader>ev :e! $MYVIMRC<CR>
-nnoremap <leader>ec :exec 'e ' . trim(@*, "\"'")<CR>
-nnoremap <leader>es :w<CR>:source %<CR>
-nnoremap <leader>cxp :w<CR>:!python %<CR><CR>
-nnoremap <leader>tc :tabnew<CR>
-nnoremap <leader>td :tabclose<CR>
-nnoremap <leader>tn :tabnext<CR>
-nnoremap <leader>tp :tabprevious<CR>
-nnoremap <leadeR>pr :exec 'vertical botright terminal ptpython --config-dir=' . ptpython_config_dir<CR>
+"####################
+"# CUSTOM FUNCTIONS #
+"####################
+
+fun! CopyCurrentFilepath()
+    let current_filepath = expand("%:p")
+    let @* = current_filepath
+    echom 'Copied current filepath: ' . current_filepath
+endf
+
+fun! EditFromClipboard()
+    let path = trim(@*, "\"'")
+    exec 'silent e ' . path
+    echom 'Editing path from clipboard: ' . path
+endf
 
