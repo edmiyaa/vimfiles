@@ -149,6 +149,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 let $FZF_DEFAULT_OPTS='--reverse --exact'
 
+" TODO: Restore cwd after Rg command is called
 fun! SearchInFiles(...)
     let rootdir = get(a:, 1, '.')
     let pattern = input('Pattern: ')
@@ -156,6 +157,7 @@ fun! SearchInFiles(...)
     execute 'Rg! ' . pattern
 endf
 
+" TODO: Restore cwd after Files command is called
 fun! SearchFiles(...)
     let rootdir = get(a:, 1, '.')
     execute 'cd ' . rootdir
