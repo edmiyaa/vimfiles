@@ -66,7 +66,6 @@ let g:which_key_map = {}
 let g:which_key_map.b = {
     \ 'name': '+buffers',
     \ 'b': ['Buffers', 'switch to buffer'],
-    \ 'c': [':call CopyCurrentFilepath()', 'copy current filepath'],
 \ }
 
 let g:which_key_map.c = {
@@ -96,7 +95,6 @@ let g:which_key_map.e = {
     \ 'name': '+edit',
     \ 'c': [':call EditFromClipboard()', 'edit from clipboard'],
     \ 'h': ['History', 'edit from history'],
-    \ 's': [':w | :source %', 'save and source current file'],
     \ 'v': [':e! $MYVIMRC', '$MYVIMRC'],
 \ }
 
@@ -106,6 +104,12 @@ let g:which_key_map.f = {
     \     'name': '+files',
     \     'v': [':call SearchFiles(g:vimrc_dir)', '$MYVIMRC directory'],
     \ },
+\ }
+
+let g:which_key_map.m = {
+    \ 'name': '+misc',
+    \ 'c': [':call CopyCurrentFilepath()', 'copy current filepath'],
+    \ 's': [':w | :source %', 'save and source current file'],
 \ }
 
 let g:which_key_map.g = {
@@ -124,10 +128,10 @@ let g:which_key_map.p = {
 
 let g:which_key_map.t = {
     \ 'name': '+tabs',
-    \ 'c': ['tabnew', 'create tab'],
-    \ 'd': ['tabclose', 'delete tab'],
-    \ 'n': ['tabnext', 'next tab'],
-    \ 'p': ['tabprevious', 'previous tab'],
+    \ 'n': ['tabnew', 'new tab'],
+    \ 'c': ['tabclose', 'close tab'],
+    \ '>': ['tabnext', 'next tab'],
+    \ '<': ['tabprevious', 'previous tab'],
 \ }
 
 "#################
