@@ -12,6 +12,9 @@
 !plugin/usd/
 !plugin/usd/*.vim
 
+!plugin/usd/py/
+!plugin/usd/py/usd.py
+
 !ftplugin/
 !ftplugin/*.vim
 
