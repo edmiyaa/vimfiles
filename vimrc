@@ -104,6 +104,10 @@ let g:which_key_map.f = {
     \     'name': '+files',
     \     'v': [':call SearchFiles(g:vimrc_dir)', '$MYVIMRC directory'],
     \ },
+    \ 'i': {
+    \     'name': '+in_files',
+    \     'p': [':call SearchInFiles(input("Path: ", @*))', 'input path'],
+    \ },
 \ }
 
 let g:which_key_map.g = {
