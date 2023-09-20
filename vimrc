@@ -115,6 +115,11 @@ let g:which_key_map.g = {
     \ 'd': ['GitGutterDiffOrig', 'diff with original'],
     \ 'f': ['GitGutterFold', 'diff fold'],
     \ 'g': [':vertical botright G', 'G'],
+    \ 'n': ['GitGutterNextHunk', 'next hunk'],
+    \ 'p': ['GitGutterPrevHunk', 'prev hunk'],
+    \ 's': ['GitGutterStageHunk', 'stage hunk'],
+    \ 'u': ['GitGutterUndoHunk', 'undo hunk'],
+    \ 'v': ['GitGutterPreviewHunk', 'preview hunk'],
 \ }
 
 let g:which_key_map.m = {
